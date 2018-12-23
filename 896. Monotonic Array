@@ -1,0 +1,25 @@
+One pass:
+class Solution {
+    public boolean isMonotonic(int[] A) {
+        if(A == null || A.length < 1){
+            return true;
+        }
+        boolean u = false;
+        boolean d = false;
+        for(int i=1; i<A.length; i++){
+            if(A[i-1] > A[i]){
+                if(u){
+                    return false;
+                }
+                d = true;
+            }else if(A[i-1] < A[i]){
+                if(d){
+                    return false;
+                }
+                u = true;    
+            }
+        }
+        
+        return true;
+    }
+}
